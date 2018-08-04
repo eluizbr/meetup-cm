@@ -1,0 +1,23 @@
+<form [formGroup]="userForm" (ngSubmit)="doLogin(userForm.value)">
+  <div class="container pt-4">
+
+    <div class="card">
+      <h5 class="card-header">Login</h5>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Username</label>
+          <input formControlName="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Username">
+          <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <button [disabled]="!userForm.valid" type="submit" class="btn btn-primary">
+          <i *ngIf="( spinner$ | async )" class="fas fa-spinner fa-pulse"></i>
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
